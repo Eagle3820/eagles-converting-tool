@@ -1,4 +1,4 @@
-# eagles-converting-tool
+# Eagles Converting Tool
 FFMPEG-based video converter with customizable options for seamless format conversion (Assuming it works)
 
 
@@ -20,3 +20,19 @@ The primary goals of Eagles Converting Tool are to provide a user-friendly and e
 
 By accomplishing these goals, Eagles Converting Tool aims to become a reliable and go-to solution for users seeking a versatile and efficient video and audio conversion application.
 
+
+## App Structure
+
+- Main Process: The main process in Electron serves as the entry point of your application. It handles the overall control flow and coordination between the different windows or screens. It launches the user interface and manages interactions between components.
+- Main Window: The initial window that appears when the application is launched. It provides options to select the input and output folders using native file dialogs.
+- Encoding Options Window: This window allows users to configure the encoding settings for the videos they want to convert.
+- Secondary Encoding Options Window: This window is specifically for choosing the bit depth for the selected codec and shows relevant encoding options based on the user's selection.
+- Confirmation Window: Displays a summary of the selected settings and provides a confirmation message. Includes options such as "Proceed" and "Cancel" to confirm or abort the conversion process.
+- Processing Window: Replaces the current window when the user proceeds from the confirmation window. It displays a progress bar or estimated time remaining to indicate the conversion progress.
+
+
+## Disclaimer
+
+Please note that this project is developed by a beginner programmer (AKA - ME) who is still learning. While utmost care is taken to ensure the accuracy and functionality of the application, there may be areas that can be further improved or optimized. Feedback, suggestions, and contributions from experienced developers are greatly appreciated.
+
+Thank you for your understanding and support as I continue to grow and enhance my programming skills.
