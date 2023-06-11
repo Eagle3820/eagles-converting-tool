@@ -1,0 +1,28 @@
+{
+  "name": "eagles-converting-tool",
+  "version": "0.1.0-alpha",
+  "description": "FFMPEG-based video converter with customizable options for seamless format conversion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eagle3820/eagles-converting-tool.git"
+  },
+  "keywords": [
+    "video",
+    "converter",
+    "encoding",
+    "multimedia",
+    "conversion",
+    "FFMPEG",
+    "Electron"
+  ],
+  "author": "Eagle3820",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eagle3820/eagles-converting-tool/issues"
+  },
+  "homepage": "https://github.com/Eagle3820/eagles-converting-tool#readme"
+}
