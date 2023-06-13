@@ -1,24 +1,47 @@
 const { app, BrowserWindow } = require('electron');
-const { selectFolder, getInputFiles } = require('./file-manager');
+const path = require('path');
+const url = require('url');
 
-app.on('ready', () => {
-  // Create the main window
-  const mainWindow = new BrowserWindow({
-    width: 800, // Set the initial width of the window
-    height: 600, // Set the initial height of the window
+// Keep a reference to the main window
+let mainWindow;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
 
-  // Load the HTML file for the main window
-  mainWindow.loadFile('index.html');
+  mainWindow.loadURL(
+    url.format({
+      pathname: path.join(__dirname, 'index.html'),
+      protocol: 'file',
+      slashes: true,
+    })
+  );
 
-  // Optional: Open the DevTools for debugging
-  // mainWindow.webContents.openDevTools();
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
 
-  // Example usage of getInputFiles function
-  const inputFolderPath = selectFolder();
-  if (inputFolderPath) {
-    const inputFiles = getInputFiles(inputFolderPath);
-    console.log(inputFiles);
-    // Use the inputFiles array as needed
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
+}
+
+app.on('ready', createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
   }
 });

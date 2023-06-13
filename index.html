@@ -77,18 +77,37 @@ filesLink.addEventListener('click', () => {
     .then(data => {
       content.innerHTML = data;
 
-      // Call the selectFolder function to prompt the user to select a folder. (Commenting out for now as this is not needed currently)
-      //const inputFolderPath = window.api.selectFolder();
+      // Get references to the folder selection buttons
+      const selectInputFolderButton = document.getElementById('select-input-folder');
+      const selectOutputFolderButton = document.getElementById('select-output-folder');
 
-      if (inputFolderPath) {
-        // Use the inputFolderPath as needed
-        // You can pass it to the convertFiles function or perform any other actions
-      }
+      // Event listener for selecting the input folder
+      selectInputFolderButton.addEventListener('click', () => {
+        // Call the selectFolder function to prompt the user to select a folder
+        const inputFolderPath = window.api.selectFolder();
+
+        if (inputFolderPath) {
+          // Use the inputFolderPath as needed
+          // You can pass it to the convertFiles function or perform any other actions
+        }
+      });
+
+      // Event listener for selecting the output folder
+      selectOutputFolderButton.addEventListener('click', () => {
+        // Call the selectFolder function to prompt the user to select a folder
+        const outputFolderPath = window.api.selectFolder();
+
+        if (outputFolderPath) {
+          // Use the outputFolderPath as needed
+          // You can pass it to the convertFiles function or perform any other actions
+        }
+      });
     })
     .catch(error => {
       console.error('Error loading file-manager.html:', error);
     });
 });
+
 
 projectsLink.addEventListener('click', () => {
   // Load projects.html content

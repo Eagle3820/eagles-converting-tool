@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { dialog } = require('electron');
+const { app, dialog } = require('electron');
 
 // Function to get the list of files in the input folder
 function getInputFiles(inputFolderPath) {
@@ -8,7 +8,9 @@ function getInputFiles(inputFolderPath) {
 }
 
 function selectFolder() {
-  const folder = dialog.showOpenDialogSync({
+  const focusedWindow = BrowserWindow.getFocusedWindow();
+  
+  const folder = dialog.showOpenDialogSync(focusedWindow, {
     properties: ['openDirectory'],
   });
 
