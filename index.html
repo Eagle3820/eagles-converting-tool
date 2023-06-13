@@ -3,14 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <title>My Electron App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    header {
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav ul li {
+      display: inline;
+    }
+    
+    nav ul li a {
+      display: inline-block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+  
+    main {
+      text-align: center;
+      margin-top: 100px;
+    }
+  
+    h1 {
+      color: #333;
+    }
+  
+    p {
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <!-- Your navigation bar content -->
-  </header>
-  <main>
     <h1>Welcome to my Electron app!</h1>
     <p>This is the main window content.</p>
+  </header>
+  <nav>
+    <ul>
+      <li class="active"><a href="#files">Files</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </nav>
+  
+  <main id="content">
+    <!-- Default content or dynamically loaded content -->
   </main>
+  <script>
+    // JavaScript code to handle menu clicks and load content dynamically
+    
+    // Get references to menu items and content area
+    const filesLink = document.querySelector('a[href="#files"]');
+    const projectsLink = document.querySelector('a[href="#projects"]');
+    const settingsLink = document.querySelector('a[href="#settings"]');
+    const content = document.querySelector('#content');
+
+// Event listeners for menu clicks
+filesLink.addEventListener('click', () => {
+  // Load file-manager.html content
+  fetch('file-manager.html')
+    .then(response => response.text())
+    .then(data => {
+      content.innerHTML = data;
+
+      // Call the selectFolder function to prompt the user to select a folder. (Commenting out for now as this is not needed currently)
+      //const inputFolderPath = window.api.selectFolder();
+
+      if (inputFolderPath) {
+        // Use the inputFolderPath as needed
+        // You can pass it to the convertFiles function or perform any other actions
+      }
+    })
+    .catch(error => {
+      console.error('Error loading file-manager.html:', error);
+    });
+});
+
+projectsLink.addEventListener('click', () => {
+  // Load projects.html content
+  content.innerHTML = '<h2>Projects</h2><p>This is the projects page content.</p>';
+});
+
+settingsLink.addEventListener('click', () => {
+  // Load settings.html content
+  content.innerHTML = '<h2>Settings</h2><p>This is the settings page content.</p>';
+});
+
+// Programmatically trigger the event listener for the first menu item
+filesLink.click();
+  </script>
 </body>
 </html>

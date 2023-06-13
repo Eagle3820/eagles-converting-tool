@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const { selectFolder, getInputFiles } = require('./file-manager');
 
 app.on('ready', () => {
   // Create the main window
@@ -12,4 +13,12 @@ app.on('ready', () => {
 
   // Optional: Open the DevTools for debugging
   // mainWindow.webContents.openDevTools();
+
+  // Example usage of getInputFiles function
+  const inputFolderPath = selectFolder();
+  if (inputFolderPath) {
+    const inputFiles = getInputFiles(inputFolderPath);
+    console.log(inputFiles);
+    // Use the inputFiles array as needed
+  }
 });

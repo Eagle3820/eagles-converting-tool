@@ -27,5 +27,8 @@
   "homepage": "https://github.com/Eagle3820/eagles-converting-tool#readme",
   "devDependencies": {
     "electron": "^25.1.0"
+  },
+  "dependencies": {
+    "electron-dialog": "^2.0.0"
   }
 }
