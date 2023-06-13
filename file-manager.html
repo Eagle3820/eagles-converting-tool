@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>File Manager</title>
+  <style>
+    /* Add your custom CSS styles here */
+  </style>
+</head>
+<body>
+  <h2>File Manager</h2>
+  <p>Select input and output folders:</p>
+  <button id="select-input-folder">Select Input Folder</button>
+  <button id="select-output-folder">Select Output Folder</button>
+
+  <script>
+    // JavaScript code to handle folder selection and other file management tasks
+
+    // Get references to the folder selection buttons
+    const selectInputFolderButton = document.getElementById('select-input-folder');
+    const selectOutputFolderButton = document.getElementById('select-output-folder');
+
+    // Event listener for selecting the input folder
+    selectInputFolderButton.addEventListener('click', () => {
+      // Call the selectFolder function to prompt the user to select a folder
+      const inputFolderPath = window.api.selectFolder();
+
+      if (inputFolderPath) {
+        // Use the inputFolderPath as needed
+        // You can pass it to the convertFiles function or perform any other actions
+      }
+    });
+
+    // Event listener for selecting the output folder
+    selectOutputFolderButton.addEventListener('click', () => {
+      // Call the selectFolder function to prompt the user to select a folder
+      const outputFolderPath = window.api.selectFolder();
+
+      if (outputFolderPath) {
+        // Use the outputFolderPath as needed
+        // You can pass it to the convertFiles function or perform any other actions
+      }
+    });
+  </script>
+</body>
+</html>
